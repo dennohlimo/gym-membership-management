@@ -178,7 +178,6 @@ def main():
                 print("1. View Available Membership Plans")
                 print("2. View My Membership")
                 print("3. View My Attendance")
-                print("4. View My Detais")
                 print("0. Log Out")
 
                 member_menu_choice = input("Choose an option: ")

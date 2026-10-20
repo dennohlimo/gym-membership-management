@@ -20,7 +20,7 @@ class Member(Person):
         if not isinstance(new_phone, str):
             raise ValueError("Phone number must be text.")
         if not re.fullmatch(r"0[17]\d{8}", new_phone):
-            raise ValueError("Invalid phone number. Use +254 followed by 9 digits.")
+            raise ValueError("Invalid phone number. Use 0 followed by 9 digits.")
         self._phone = new_phone
 
     @classmethod
