@@ -1,0 +1,17 @@
+{
+    "members": {
+        "MEM1001": {
+            "member_id": "MEM1001",
+            "name": "denn",
+            "phone": "0702072144"
+        },
+        "MEM1002": {
+            "member_id": "MEM1002",
+            "name": "limo",
+            "phone": "0715363907"
+        }
+    },
+    "plans": {},
+    "memberships": {},
+    "attendance": {}
+}

@@ -1,5 +1,6 @@
 import re
 from models.person import Person
+from utils.storage import save_data
 
 class Member(Person):
     _members = {}
@@ -18,7 +19,7 @@ class Member(Person):
     def phone(self, new_phone):
         if not isinstance(new_phone, str):
             raise ValueError("Phone number must be text.")
-        if not re.fullmatch(r"\0[17]\d{8}", new_phone):
+        if not re.fullmatch(r"0[17]\d{8}", new_phone):
             raise ValueError("Invalid phone number. Use +254 followed by 9 digits.")
         self._phone = new_phone
 
@@ -29,6 +30,8 @@ class Member(Person):
         cls._next_id +=1
         cls._members[member_id] = member
 
+        save_data(cls._members)
+
         return member
     @classmethod
     def all(cls):
@@ -38,6 +41,7 @@ class Member(Person):
     def remove(cls, member_id):
         if member_id in cls._members:
             del cls._members[member_id]
+            save_data(cls._members)
         else:
             raise ValueError("Member not found.")
     
@@ -47,5 +51,21 @@ class Member(Person):
             "name": self.name,
             "phone": self.phone
         }
+    @classmethod
+    def from_dict(cls, data):
+        member = cls(
+            data["member_id"],
+            data["name"],
+            data["phone"]
+        )
+
+        cls._members[member.member_id] = member
+
+        number = int(member.member_id.replace("MEM", ""))
+
+        if number > cls._next_id:
+            cls._next_id = number
+
+        return member
 
     

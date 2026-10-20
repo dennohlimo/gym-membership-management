@@ -1,4 +1,6 @@
 from models.member import Member
+from utils.storage import load_data
+
 
 
 print("===================================")
@@ -10,7 +12,7 @@ def add_member():
     print("\nADD GYM MEMBER")
     while True:
         name = input("Enter member name: ").strip()
-        phone = input("Enter phone number (+254...): ").strip()
+        phone = input("Enter phone number (0...): ").strip()
         try:
             member = Member.create(name, phone)
 
@@ -54,154 +56,154 @@ def remove_member():
         print(error)
 
 
+def main():
+    load_data()
+    while True:
+        print("\nSELECT YOUR ROLE")
+        print("1. Gym Administrator")
+        print("2. Gym Member")
+        print("0. Exit")
+
+        role_choice = input("Choose your role: ")
+
+        if role_choice == "1":
+            while True:
+                print("\nMAIN MENU")
+                print("1. Manage Gym Members")
+                print("2. Manage Membership Plans")
+                print("3. Assign Memberships")
+                print("4. Record Attendance")
+                print("5. View Available Membership Plans")
+                print("0. Log Out")
+
+                choice = input("Choose an option: ")
+
+                if choice == "1":
+                    while True:
+                        print("\nGYM MEMBERS")
+                        print("1. Add Member")
+                        print("2. View Members")
+                        print("3. Remove Member")
+                        print("0. Back to Main Menu")
+
+                        member_choice = input("Choose an option: ")
+
+                        if member_choice == "1":
+                            add_member()
+
+                        elif member_choice == "2":
+                            view_members()
+                        elif member_choice == "3":
+                            remove_member()
+                        elif member_choice == "0":
+                            break
+
+                        else:
+                            print("Invalid choice. Please try again.")
 
 
+                elif choice == "2":
+                    while True:
+                        print("\nMEMBERSHIP PLANS")
+                        print("1. Create Membership Plan")
+                        print("2. View Membership Plans")
+                        print("0. Back to main menu")
 
-while True:
-    print("\nSELECT YOUR ROLE")
-    print("1. Gym Administrator")
-    print("2. Gym Member")
-    print("0. Exit")
+                        plan_choice = input("Choose an option: ")
 
-    role_choice = input("Choose your role: ")
+                        if plan_choice == "1":
+                            print("Create Membership Plan selected.")
+                        elif plan_choice == "2":
+                            print("View Membership Plans selected.")
+                        elif plan_choice == "0":
+                            break
 
-    if role_choice == "1":
-        while True:
-            print("\nMAIN MENU")
-            print("1. Manage Gym Members")
-            print("2. Manage Membership Plans")
-            print("3. Assign Memberships")
-            print("4. Record Attendance")
-            print("5. View Available Membership Plans")
-            print("0. Log Out")
+                        else:
+                            print("Invalid choice. Please try again.")
+                    
 
-            choice = input("Choose an option: ")
+                elif choice == "3":
+                    while True:
+                        print("\nASSIGN MEMBERSHIPS")
+                        print("1. Assign Plan to Member")
+                        print("2. View Member Memberships")
+                        print("0. Back to Main Menu")
 
-            if choice == "1":
-                while True:
-                    print("\nGYM MEMBERS")
-                    print("1. Add Member")
-                    print("2. View Members")
-                    print("3. Remove Member")
-                    print("0. Back to Main Menu")
+                        membership_choice = input("Choose an option: ")
 
-                    member_choice = input("Choose an option: ")
+                        if membership_choice == "1":
+                            print("Assign Plan to Member selected.")
 
-                    if member_choice == "1":
-                        add_member()
+                        elif membership_choice == "2":
+                            print("View Member Memberships selected.")
 
-                    elif member_choice == "2":
-                        view_members()
-                    elif member_choice == "3":
-                        remove_member()
-                    elif member_choice == "0":
-                        break
+                        elif membership_choice == "0":
+                            break
 
-                    else:
-                        print("Invalid choice. Please try again.")
+                        else:
+                            print("Invalid choice. Please try again.")
 
+                elif choice == "4":
+                    while True:
+                        print("\nRECORD ATTENDANCE")
+                        print("1. Record Member Attendance")
+                        print("2. View Attendance Records")
+                        print("0. Back to Main Menu")
 
-            elif choice == "2":
-                while True:
-                    print("\nMEMBERSHIP PLANS")
-                    print("1. Create Membership Plan")
-                    print("2. View Membership Plans")
-                    print("0. Back to main menu")
+                        attendance_choice = input("Choose an option: ")
 
-                    plan_choice = input("Choose an option: ")
+                        if attendance_choice == "1":
+                            print("Record Member Attendance selected.")
 
-                    if plan_choice == "1":
-                        print("Create Membership Plan selected.")
-                    elif plan_choice == "2":
-                        print("View Membership Plans selected.")
-                    elif plan_choice == "0":
-                        break
+                        elif attendance_choice == "2":
+                            print("View Attendance Records selected.")
 
-                    else:
-                        print("Invalid choice. Please try again.")
-                
+                        elif attendance_choice == "0":
+                            break
 
-            elif choice == "3":
-                while True:
-                    print("\nASSIGN MEMBERSHIPS")
-                    print("1. Assign Plan to Member")
-                    print("2. View Member Memberships")
-                    print("0. Back to Main Menu")
+                        else:
+                            print("Invalid choice. Please try again.")
 
-                    membership_choice = input("Choose an option: ")
+                elif choice == "5":
+                    print("View Available Membership Plans selected.")
 
-                    if membership_choice == "1":
-                        print("Assign Plan to Member selected.")
+                elif choice == "0":
+                    break
 
-                    elif membership_choice == "2":
-                        print("View Member Memberships selected.")
+                else:
+                    print("Invalid choice. Please try again.")
+        elif role_choice == "2":
+            while True:
+                print("\nGYM MEMBER MENU")
+                print("1. View Available Membership Plans")
+                print("2. View My Membership")
+                print("3. View My Attendance")
+                print("4. View My Detais")
+                print("0. Log Out")
 
-                    elif membership_choice == "0":
-                        break
+                member_menu_choice = input("Choose an option: ")
 
-                    else:
-                        print("Invalid choice. Please try again.")
+                if member_menu_choice == "1":
+                    print("View Available Membership Plans Selected.")
+                elif member_menu_choice == "2":
+                    print("View My Membership selected.")
+                elif member_menu_choice == "3":
+                    print("View My Attendance selected.")
+                elif member_menu_choice == "0":
+                    print("Logging out...")
+                    break
 
-            elif choice == "4":
-                while True:
-                    print("\nRECORD ATTENDANCE")
-                    print("1. Record Member Attendance")
-                    print("2. View Attendance Records")
-                    print("0. Back to Main Menu")
+                else:
+                    print("Invalid choice. Please try again.")
 
-                    attendance_choice = input("Choose an option: ")
+        elif role_choice == "0":
+            print("Thank you for using GymPulse. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-                    if attendance_choice == "1":
-                        print("Record Member Attendance selected.")
-
-                    elif attendance_choice == "2":
-                        print("View Attendance Records selected.")
-
-                    elif attendance_choice == "0":
-                        break
-
-                    else:
-                        print("Invalid choice. Please try again.")
-
-            elif choice == "5":
-                print("View Available Membership Plans selected.")
-
-            elif choice == "0":
-                break
-
-            else:
-                print("Invalid choice. Please try again.")
-    elif role_choice == "2":
-        while True:
-            print("\nGYM MEMBER MENU")
-            print("1. View Available Membership Plans")
-            print("2. View My Membership")
-            print("3. View My Attendance")
-            print("4. View My Detais")
-            print("0. Log Out")
-
-            member_menu_choice = input("Choose an option: ")
-
-            if member_menu_choice == "1":
-                print("View Available Membership Plans Selected.")
-            elif member_menu_choice == "2":
-                print("View My Membership selected.")
-            elif member_menu_choice == "3":
-                print("View My Attendance selected.")
-            elif member_menu_choice == "0":
-                print("Logging out...")
-                break
-
-            else:
-                print("Invalid choice. Please try again.")
-
-    elif role_choice == "0":
-        print("Thank you for using GymPulse. Goodbye!")
-        break
-    else:
-        print("Invalid choice. Please try again.")
-
-
+if __name__ == "__main__":
+    main()
 
 
 
