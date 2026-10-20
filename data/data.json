@@ -9,6 +9,11 @@
             "member_id": "MEM1002",
             "name": "limo",
             "phone": "0715363907"
+        },
+        "MEM1003": {
+            "member_id": "MEM1003",
+            "name": "owen",
+            "phone": "0702071555"
         }
     },
     "plans": {},
