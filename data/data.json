@@ -9,14 +9,25 @@
             "member_id": "MEM1002",
             "name": "limo",
             "phone": "0715363907"
-        },
-        "MEM1003": {
-            "member_id": "MEM1003",
-            "name": "owen",
-            "phone": "0702071555"
         }
     },
-    "plans": {},
-    "memberships": {},
+    "plans": {
+        "PLN1": {
+            "plan_id": "PLN1",
+            "name": "Monthly",
+            "price": 1500.0,
+            "duration_days": 30,
+            "description": "Monthly gym membership"
+        }
+    },
+    "memberships": {
+        "MS1": {
+            "membership_id": "MS1",
+            "member_id": "MEM1001",
+            "plan_id": "PLN1",
+            "start_date": "2026-10-21",
+            "expiry_date": "2026-11-20"
+        }
+    },
     "attendance": {}
 }

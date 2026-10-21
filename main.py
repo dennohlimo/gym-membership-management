@@ -150,7 +150,7 @@ def assign_membership():
         print("Status:", "Expired" if membership.is_expired else "Active")
 
     except ValueError as error:
-        print("Invalid date:", error)
+        print("Could not assign membership:", error)
 
 
 def view_member_memberships():
@@ -165,7 +165,7 @@ def view_member_memberships():
     memberships = Membership.for_member(member.member_id)
 
     if not memberships:
-        print("This member has no assigned memberships.")
+        print("You have no assigned memberships.")
         return
 
     print(f"\nMEMBERSHIPS FOR {member.name}")
@@ -179,6 +179,7 @@ def view_member_memberships():
 
         print("-------------------------")
         print("Membership ID:", membership.membership_id)
+        print("Plan ID:", membership.plan_id)
         print("Plan:", plan_name)
         print("Start date:", membership.start_date)
         print("Expiry date:", membership.expiry_date)

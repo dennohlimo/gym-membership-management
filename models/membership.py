@@ -24,6 +24,12 @@ class Membership:
 
     @classmethod
     def assign(cls, member, plan, start_date=None):
+        for existing in cls.for_member(member.member_id):
+            if not existing.is_expired:
+                raise ValueError(
+                    f"Member already has an active membership with this plan: {existing.membership_id}"
+                )
+        
         """Assign a plan to a member and calculate its expiry date."""
         start = (
             date.fromisoformat(start_date)
