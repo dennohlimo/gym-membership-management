@@ -9,6 +9,11 @@
             "member_id": "MEM1002",
             "name": "limo",
             "phone": "0715363907"
+        },
+        "MEM1003": {
+            "member_id": "MEM1003",
+            "name": "josphat",
+            "phone": "0721118893"
         }
     },
     "plans": {
@@ -27,6 +32,20 @@
             "plan_id": "PLN1",
             "start_date": "2026-10-21",
             "expiry_date": "2026-11-20"
+        },
+        "MS2": {
+            "membership_id": "MS2",
+            "member_id": "MEM1002",
+            "plan_id": "PLN1",
+            "start_date": "2026-10-22",
+            "expiry_date": "2026-11-21"
+        },
+        "MS3": {
+            "membership_id": "MS3",
+            "member_id": "MEM1003",
+            "plan_id": "PLN1",
+            "start_date": "2026-10-22",
+            "expiry_date": "2026-11-21"
         }
     },
     "attendance": {}

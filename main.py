@@ -1,3 +1,5 @@
+import attendance
+
 from datetime import date
 
 from models.member import Member
@@ -261,9 +263,7 @@ def main():
                         print("2. View Member Memberships")
                         print("0. Back to Main Menu")
 
-                        membership_choice = input(
-                            "Choose an option: "
-                        ).strip()
+                        membership_choice = input("Choose an option: ").strip()
 
                         if membership_choice == "1":
                             assign_membership()
@@ -275,48 +275,41 @@ def main():
                             print("Invalid choice. Please try again.")
 
                 elif choice == "4":
-                    print("Attendance features are not implemented yet.")
+                    # Linked to your new admin portal feature
+                    attendance.admin_menu()
 
                 elif choice == "5":
                     view_plans()
 
                 elif choice == "0":
                     break
-
                 else:
                     print("Invalid choice. Please try again.")
 
         elif role_choice == "2":
             while True:
                 print("\nGYM MEMBER MENU")
-                print("1. View Available Membership Plans")
-                print("2. View My Membership")
-                print("3. View My Attendance")
-                print("4. View My Details")
+                print("1. View My Profile & Live Attendance Status")
+                print("2. View My Assigned Membership History")
                 print("0. Log Out")
 
-                choice = input("Choose an option: ").strip()
+                member_menu_choice = input("Choose an option: ").strip()
 
-                if choice == "1":
-                    view_plans()
-                elif choice == "2":
+                if member_menu_choice == "1":
+                    # Linked to your new member login profile feature
+                    attendance.member_menu()
+                elif member_menu_choice == "2":
                     view_member_memberships()
-                elif choice == "3":
-                    print("Attendance features are not implemented yet.")
-                elif choice == "4":
-                    view_my_details()
-                elif choice == "0":
-                    print("Logging out...")
+                elif member_menu_choice == "0":
                     break
                 else:
                     print("Invalid choice. Please try again.")
 
         elif role_choice == "0":
-            print("Thank you for using GymPulse. Goodbye!")
+            print("Exiting application. Goodbye!")
             break
-
         else:
-            print("Invalid choice. Please try again.")
+            print("Invalid role selected. Please choose 1, 2, or 0.")
 
 
 if __name__ == "__main__":
